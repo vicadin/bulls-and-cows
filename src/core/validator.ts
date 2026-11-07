@@ -19,3 +19,7 @@ export const createDigitValidator = (base: BaseInput): ((char: string) => boolea
     return allowedSet.has(char.toLowerCase());
   };
 };
+
+export const isValidGuess = (_guess: string, _length: number, _base: BaseInput): boolean => {
+  return false; // todo
+};
