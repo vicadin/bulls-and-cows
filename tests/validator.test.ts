@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { createDigitValidator, isValidGuess } from '../../src/core/validator';
+import { createDigitValidator, isValidGuess } from '../src/core/validator';
 
 describe('createDigitValidator', () => {
   it('is a curried factory returning a predicate function', () => {

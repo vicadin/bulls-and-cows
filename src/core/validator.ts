@@ -20,6 +20,18 @@ export const createDigitValidator = (base: BaseInput): ((char: string) => boolea
   };
 };
 
-export const isValidGuess = (_guess: string, _length: number, _base: BaseInput): boolean => {
-  return false; // todo
+export const isValidGuess = (guess: string, length: number, base: BaseInput): boolean => {
+  if (typeof guess !== 'string' || guess.length !== length || length <= 0) {
+    return false;
+  }
+  const isDigitValid = createDigitValidator(base);
+  const normalizedChars = guess.toLowerCase().split('');
+
+  const allValid = normalizedChars.every((char) => isDigitValid(char));
+  if (!allValid) {
+    return false;
+  }
+
+  const uniqueChars = new Set(normalizedChars);
+  return uniqueChars.size === length;
 };
